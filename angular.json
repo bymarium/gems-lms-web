@@ -7,7 +7,8 @@
       "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "projects/shared",
@@ -38,7 +39,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "projects/main",
@@ -134,6 +136,12 @@
       "root": "projects/admin",
       "sourceRoot": "projects/admin/src",
       "prefix": "adm",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
@@ -160,6 +168,12 @@
       "root": "projects/auth",
       "sourceRoot": "projects/auth/src",
       "prefix": "auth",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
@@ -186,6 +200,12 @@
       "root": "projects/education",
       "sourceRoot": "projects/education/src",
       "prefix": "edu",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",

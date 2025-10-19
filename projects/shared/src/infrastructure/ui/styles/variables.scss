@@ -1,18 +1,48 @@
-$background-color: #dfdbdb;
-$green: #064747;
-$white-20: #dcdcdc;
-$white-10: #f9f9f9c4;
-$radial-gradient: radial-gradient(86% 100% at 10% 9%, #fad4f3 0%, #ee84d6 60%, #00aeaa 90%);
-$box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-$box-shadow-lg: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-$white-transparent: #ffffffaf;
-$white: #fff;
-$black: #000;
-$bc-dark: #0009;
-$green-light: #026d6d;
-$green-transparent: #008a8893;
-$red-light: #ff5757;
-$red-dark: #ff0000;
-$blue-light: #5676ff;
-$blue-dark: #0c0eff;
-$green-bc: #008a8838;
+$_color-primario: #6C63FF;
+$_color-secundario: #1E1B4B;
+$_color-acento: #4DE1FF;
+$_color-magenta: #C471ED;
+$_color-oscuro: #0F1021;
+$_color-gris: #A1A8C3;
+
+$_color-exito: #10B981;
+$_color-advertencia: #FBBF24;
+$_color-error: #EF4444;
+$_color-info: #38BDF8;
+
+$_gradiente-primario: linear-gradient(135deg, #6C63FF 0%, #4DE1FF 100%);
+$_gradiente-nebula: linear-gradient(135deg, #C471ED 0%, #6C63FF 100%);
+$_gradiente-oscuro: linear-gradient(135deg, #1E1B4B 0%, #4DE1FF 100%);
+
+$font-family-base: 'Montserrat', sans-serif;
+
+$base: 1rem;
+$spacing-xs: $base * 0.25;
+$spacing-sm: $base * 0.5;
+$spacing-md: $base;
+$spacing-lg: $base * 1.5;
+$spacing-xl: $base * 2;
+$spacing-2xl: $base * 3;
+
+$border-radius-sm: $base * 0.5;
+$border-radius-md: $base * 0.75;
+$border-radius-lg: $base;
+$border-radius-xl: $base * 1.25;
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+$shadow-glow: 0 0 20px rgba(108, 99, 255, 0.4);
+
+$colors: (
+  primary: $_color-primario,
+  secondary: $_color-secundario,
+  accent: $_color-acento,
+  magenta: $_color-magenta,
+  dark: $_color-oscuro,
+  gray: $_color-gris,
+  success: $_color-exito,
+  warning: $_color-advertencia,
+  error: $_color-error,
+  info: $_color-info
+);
