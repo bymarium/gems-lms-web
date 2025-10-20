@@ -1,6 +1,6 @@
-import { Component, input, ElementRef, Renderer2 } from '@angular/core';
+import { Component, input, ElementRef, Renderer2, inject } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
-import {  subformComponentProviders, createForm, FormType } from 'ngx-sub-form';
+import { subformComponentProviders, createForm, FormType } from 'ngx-sub-form';
 
 @Component({
   selector: 'app-input',
@@ -10,13 +10,16 @@ import {  subformComponentProviders, createForm, FormType } from 'ngx-sub-form';
   templateUrl: './input.html',
   styleUrl: './input.scss'
 })
-export class InputComponent{
+export class InputComponent {
   public type = input<'input' | 'email' | 'password'>('input');
   public icon = input<string>();
   public label = input<string>();
   public placeholder = input<string>('');
   public patternKey = input<string>('');
-  
+
+  private elementRef = inject(ElementRef);
+  private renderer = inject(Renderer2);
+
   public readonly uniqueId = crypto.randomUUID();
 
   private readonly errorMessages: Record<string, (error: any) => string> = {
@@ -40,11 +43,6 @@ export class InputComponent{
       return formValue.value;
     },
   });
-
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-  ) { }
 
   handleKeypress(key: string): boolean {
     const pattern = new RegExp(this.patternKey());
@@ -93,7 +91,7 @@ export class InputComponent{
   }
 
   private toggleLabelClass(toggle: boolean, classes: string): void {
-    const label = this.el?.nativeElement?.querySelector('.input__label');
+    const label = this.elementRef?.nativeElement?.querySelector('.input__label');
 
     if (!label) { return; }
 

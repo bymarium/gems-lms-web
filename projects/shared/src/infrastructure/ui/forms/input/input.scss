@@ -1,69 +1,87 @@
 @use "../../styles/variables.scss" as vars;
+@use "sass:map";
 
 .input {
   $self: &;
   position: relative;
+  width: 100%;
 
   &__label {
-    background-color: map-get(vars.$colors, gray);
-    border-radius: vars.$border-radius-md;
-    border: 1px solid map-get(vars.$colors, gray);
-    column-gap: vars.$spacing-sm;
-    padding: vars.$spacing-xs vars.$spacing-sm;
-    transition: 0.2s ease;
-
+    background-color: rgba(map.get(vars.$colors, bg-light), 0.6);
+    border: 1px solid rgba(map.get(vars.$colors, border), 0.1);
+    border-radius: vars.$border-radius-xl;
+    padding: vars.$spacing-md vars.$spacing-lg;
+    transition: all 0.2s ease;
     align-items: center;
+    column-gap: vars.$spacing-md;
     display: flex;
     position: relative;
+    min-height: 56px;
 
     &#{$self}__label--focus {
-      background-color: map-get(vars.$colors, primary);
-      border-color: map-get(vars.$colors, primary);
+      background-color: rgba(map.get(vars.$colors, primary), 0.15);
+      border-color: map.get(vars.$colors, primary);
+      box-shadow: 0 0 0 3px rgba(map.get(vars.$colors, primary), 0.1);
     }
 
     &#{$self}__label--error {
-      background-color: map-get(vars.$colors, error);
-      border-color: map-get(vars.$colors, error);
+      background-color: rgba(map.get(vars.$colors, error), 0.1);
+      border-color: map.get(vars.$colors, error);
     }
 
     &--disabled {
-      background-color: #e9e9e9;
+      background-color: rgba(map.get(vars.$colors, gray), 0.1);
+      opacity: 0.6;
 
       &#{$self}__label--focus {
-        background-color: #e9e9e9;
-        border-color: map-get(vars.$colors, gray);
+        background-color: rgba(map.get(vars.$colors, gray), 0.1);
+        border-color: rgba(map.get(vars.$colors, border), 0.1);
       }
     }
   }
 
   &__error {
-    color: map-get(vars.$colors, error);
-    font-size: 0.875rem;
+    color: map.get(vars.$colors, error);
+    font-size: vars.$font-size-sm;
     display: block;
     margin-top: vars.$spacing-xs;
-    padding-left: vars.$spacing-sm;
+    padding-left: vars.$spacing-md;
   }
 
   &__text {
-    width: calc(100% - #{vars.$spacing-lg});
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: vars.$spacing-xs;
+
+    & > span {
+      font-size: vars.$font-size-sm;
+      font-weight: vars.$font-weight-regular;
+      color: map.get(vars.$colors, border);
+      letter-spacing: 0.3px;
+    }
   }
 
   &__input,
   &__textarea {
     font-family: vars.$font-family-base;
-    font-size: 0.95rem;
-    display: inline-grid;
+    font-size: vars.$font-size-base;
+    display: inline-block;
     border: none;
     outline: none;
     background-color: transparent;
-    color: map-get(vars.$colors, secondary);
+    color: map.get(vars.$colors, border);
+    width: 100%;
+    
+    &::placeholder {
+      color: #ab9db9;
+    }
   }
 
   &__icon {
-    color: map-get(vars.$colors, primary);
-    font-size: 0.95rem;
+    color: map.get(vars.$colors, primary);
+    font-size: 1rem;
+    flex-shrink: 0;
   }
 }

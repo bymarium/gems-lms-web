@@ -1,0 +1,43 @@
+<form class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+  <div class="login-form__header">
+    <img src="assets/logo.png" alt="GEMS LMS Logo" class="login-form__logo" />
+  </div>
+
+  <div class="login-form__intro">
+    <h1 class="login-form__title">Welcome Back</h1>
+    <p class="login-form__subtitle">Login to your personalized learning universe.</p>
+  </div>
+
+  <div class="login-form__inputs">
+    <div class="login-form__field">
+      <app-input
+        formControlName="email"
+        label="Username/Email"
+        placeholder="Enter your username or email"
+        type="email"
+      />
+    </div>
+
+    <div class="login-form__field">
+      <app-input
+        formControlName="password"
+        label="Password"
+        placeholder="Enter your password"
+        type="password"
+      />
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="login-form__button"
+    [disabled]="!form.formGroup.valid"
+  >
+    Login
+  </button>
+
+  <div class="login-form__footer">
+    <a href="#" class="login-form__link">Forgot Password?</a>
+    <a href="#" class="login-form__link">Sign Up</a>
+  </div>
+</form>

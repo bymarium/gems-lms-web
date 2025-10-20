@@ -10,11 +10,20 @@ $_color-advertencia: #FBBF24;
 $_color-error: #EF4444;
 $_color-info: #38BDF8;
 
-$_gradiente-primario: linear-gradient(135deg, #6C63FF 0%, #4DE1FF 100%);
-$_gradiente-nebula: linear-gradient(135deg, #C471ED 0%, #6C63FF 100%);
-$_gradiente-oscuro: linear-gradient(135deg, #1E1B4B 0%, #4DE1FF 100%);
+$gradiente-primario: linear-gradient(135deg, #6C63FF 0%, #4DE1FF 100%);
+$gradiente-nebula: linear-gradient(135deg, #C471ED 0%, #6C63FF 100%);
+$gradiente-oscuro: linear-gradient(135deg, #1E1B4B 0%, #4DE1FF 100%);
 
 $font-family-base: 'Montserrat', sans-serif;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 
 $base: 1rem;
 $spacing-xs: $base * 0.25;
@@ -34,6 +43,10 @@ $shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
 $shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
 $shadow-glow: 0 0 20px rgba(108, 99, 255, 0.4);
 
+$_color-bg-light: #1a1720;
+$_color-bg-dark: #100e14;
+$_color-border: #ffffff;
+
 $colors: (
   primary: $_color-primario,
   secondary: $_color-secundario,
@@ -44,5 +57,8 @@ $colors: (
   success: $_color-exito,
   warning: $_color-advertencia,
   error: $_color-error,
-  info: $_color-info
+  info: $_color-info,
+  bg-light: $_color-bg-light,
+  bg-dark: $_color-bg-dark,
+  border: $_color-border
 );

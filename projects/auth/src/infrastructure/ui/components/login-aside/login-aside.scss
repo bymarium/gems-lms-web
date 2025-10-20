@@ -1,0 +1,138 @@
+@use "sass:map";
+@use "../../../../../../shared/src/infrastructure/ui/styles/variables.scss" as vars;
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.login-aside {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: map.get(vars.$colors, bg-dark);
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJRp7vVwfpzQeIOIXaF_qpl_qN7wEFdJbzlfM38YzJsDiVDw6nV5XCCFyHDM9XmRCCqvtmx67Ow0EMF2fbxzT0KEl7OCYeTX60THXM9kodTtx3CvWE8bHUSNtTHxSVj97CIMaff6oAk2PbHj6zcZDfSnrZV3WiTcLXEsc2Bnb1I0a-GALYp6OGQQjUW65hD5tHvG0wbMi7E_GXCV61DkSaRuS14Zf70vcIa9PGRk5bI3ZX0uYBPzEKpwDIQDXDYUCYVQvEVLLjztA');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(20, 17, 24, 0.8) 0%,
+      rgba(20, 17, 24, 0.5) 50%,
+      rgba(14, 59, 74, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: pulse-glow 4s ease-in-out infinite;
+
+    &--1 {
+      width: 384px;
+      height: 384px;
+      background: linear-gradient(
+        135deg,
+        map.get(vars.$colors, primary) 0%,
+        transparent 70%
+      );
+      top: -96px;
+      left: -96px;
+      animation-delay: 0s;
+      z-index: 2;
+    }
+
+    &--2 {
+      width: 384px;
+      height: 384px;
+      background: linear-gradient(
+        225deg,
+        map.get(vars.$colors, info) 0%,
+        transparent 70%
+      );
+      bottom: -96px;
+      right: -96px;
+      animation-delay: 2s;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: map.get(vars.$colors, border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: vars.$spacing-lg;
+    padding: vars.$spacing-xl;
+    max-width: 90%;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  &__title {
+    font-size: 3.125rem;
+    font-weight: vars.$font-weight-bold;
+    font-family: vars.$font-family-base;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -1px;
+    max-width: 400px;
+  }
+
+  &__description {
+    font-size: vars.$font-size-lg;
+    font-weight: vars.$font-weight-regular;
+    font-family: vars.$font-family-base;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+    max-width: 448px;
+    color: rgba(map.get(vars.$colors, border), 0.8);
+  }
+
+  &__ring {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 96px;
+    height: 96px;
+    border: 2px solid map.get(vars.$colors, primary);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulse-glow 4s ease-in-out infinite;
+    z-index: 3;
+  }
+}

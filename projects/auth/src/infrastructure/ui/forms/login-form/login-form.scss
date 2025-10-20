@@ -1,0 +1,107 @@
+@use "sass:map";
+@use "../../../../../../shared/src/infrastructure/ui/styles/variables.scss" as vars;
+
+.login-form {
+  width: 100%;
+  max-width: 448px;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-lg;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: vars.$spacing-md;
+  }
+
+  &__logo {
+    height: 48px;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: vars.$spacing-lg;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: vars.$font-weight-bold;
+    font-family: vars.$font-family-base;
+    color: map.get(vars.$colors, border);
+    margin: 0 0 vars.$spacing-xs 0;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-size: vars.$font-size-sm;
+    font-weight: vars.$font-weight-regular;
+    font-family: vars.$font-family-base;
+    color: rgba(map.get(vars.$colors, gray), 0.7);
+    margin: 0;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
+  }
+
+  &__field {
+    width: 100%;
+  }
+
+  &__button {
+    background: linear-gradient(
+      135deg,
+      map.get(vars.$colors, primary) 0%,
+      map.get(vars.$colors, accent) 100%
+    );
+    color: map.get(vars.$colors, border);
+    border: none;
+    border-radius: vars.$border-radius-xl;
+    padding: vars.$spacing-md vars.$spacing-lg;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-bold;
+    font-family: vars.$font-family-base;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    min-height: 56px;
+    box-shadow: 0 0 15px rgba(map.get(vars.$colors, primary), 0.5);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(map.get(vars.$colors, primary), 0.8);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: vars.$spacing-md;
+    font-size: vars.$font-size-sm;
+  }
+
+  &__link {
+    color: rgba(map.get(vars.$colors, gray), 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-family: vars.$font-family-base;
+
+    &:hover {
+      color: map.get(vars.$colors, border);
+    }
+  }
+}
+
